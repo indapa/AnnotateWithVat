@@ -18,3 +18,6 @@ wget -nc \
      http://homes.gersteinlab.org/people/lh372/VAT/gencode6.fa \
      http://homes.gersteinlab.org/people/lh372/VAT/gencode7.interval \
      http://homes.gersteinlab.org/people/lh372/VAT/gencode7.fa
+
+echo "getting hg19.2bit from UCSC ... "
+wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit
