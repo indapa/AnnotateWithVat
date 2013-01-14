@@ -1,6 +1,6 @@
 if test -z "$1"
 then
-echo "provide a vcf file as first argument."
+echo "provide a bgzip-ed vcf file as first argument."
 echo "runSnpMapper file.vcf genemodel.interval genemodel.fa"
 exit
 fi
@@ -19,6 +19,6 @@ echo "runSnpMapper file.vcf genemodel.interval genemodel.fa"
 exit
 fi
 
-cat $1 | snpMapper $2 $3
+zcat $1 | snpMapper $2 $3
 
 #cat  ALL.2of4intersection.20100804.sites.chr2:1-50000000.vcf | snpMapper vat-2.0.1/Gencode/gencode7.interval vat-2.0.1/Gencode/gencode7.fa 
