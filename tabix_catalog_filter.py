@@ -34,15 +34,16 @@ def main():
     catalogTbi=pysam.Tabixfile(options.catalogvcf, "r")
     for row in pysamTbi.fetch():
         fields=row.split("\t")
-        chr=fields[0]
-        if 'chr' in chr:
-            chr.replace('chr','')
+        chrom=fields[0]
+        if 'chr' in chrom:
+            chrom=chrom.replace('chr','')
         
         start=int(fields[1])-1
         end=start+1
     #print chr,start,end
     #print row
-        regionstr=str(chr)+":"+str(start)+"-"+str(end)
+        regionstr=str(chrom)+":"+str(start)+"-"+str(end)
+
         try:
             tabixrow=catalogTbi.fetch(regionstr).__next__()
             if options.reverse == True: print row
