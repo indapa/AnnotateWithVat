@@ -6,7 +6,7 @@ I am not affiliated with Gerstein Lab, I wrote these scripts for my own convenie
 
 To build the necessary software to run VAT:
 
-./build_vat.sh
+*./build_vat.sh*
 
 Compile the source code to dependent libraries to VAT, as well as VAT itself. 
 You need sudo privileges. 
