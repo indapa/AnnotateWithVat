@@ -35,34 +35,34 @@ TABIX_DIR /home/indapa/AnnotateWithVat/tabix-0.2.6
 // Directory where VAT executables are
 VAT_EXEC_DIR /usr/local/bin
 
-./getGencodeAnnotations.sh
+*./getGencodeAnnotations.sh*
 
 Gets the Gencode annotation files necessary for variant annotation and puts them into a sub-directory
 called Gencode.
 Again, see http://vat.gersteinlab.org/download.php for more info
 
-./build_pysam.sh
+*./build_pysam.sh*
 
 This installs pysam v0.7 which is needed to run tabix_catalog_filter.py that runs a hard filter against a catalog VCF 
 (like 1000G ) to extract novel variant records in a VCF file. 
 
 Running an example pipeline:
 
-./runSnpMapper.sh  ALL.2of4intersection.20100804.sites.chr2:1-50000000.vcf.gz GencodeAnnotations/gencode7.interval  GencodeAnnotations/gencode7.fa | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz
+*./runSnpMapper.sh*  ALL.2of4intersection.20100804.sites.chr2:1-50000000.vcf.gz GencodeAnnotations/gencode7.interval  GencodeAnnotations/gencode7.fa | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz
 
 This runs the snpMapper program that is part of VAT. The above command line runs it on an example VCF that comes with this repo. We bgzip the annotated SNP file.
 See http://vat.gersteinlab.org/programs.php
 
-./runIndelMapper.sh ALL.2of4intersection.20100804.sites.chr2:1-50000000.vcf.gz GencodeAnnotations/gencode7.interval GencodeAnnotations/gencode7.fa | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.indel.annotated.vcf.gz
+*./runIndelMapper.sh* ALL.2of4intersection.20100804.sites.chr2:1-50000000.vcf.gz GencodeAnnotations/gencode7.interval GencodeAnnotations/gencode7.fa | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.indel.annotated.vcf.gz
 
 Instead of SNPs this  annotates INDELs.
 
-./runVcfSummary.sh ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz GencodeAnnotations/gencode7.interval
+*./runVcfSummary.sh* ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz GencodeAnnotations/gencode7.interval
 
 This program runs vcfSummary and gets total numbers of variants in each gene and each sample. 
 See http://vat.gersteinlab.org/programs.php
 
-./tabix_catalog_filter.py  --catalogVcf ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.novel.vcf.gz
+*./tabix_catalog_filter.py*  --catalogVcf ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.novel.vcf.gz
 
 We hard filter against a variant catalog VCF ( meaning a VCF containing records from dbSNP, 1000G, NHBLI ESP, etc).
 By hard filter we mean to extract out novel variant calls in a VCF file by comparing catalog collection such as 1000G
@@ -77,11 +77,11 @@ In the example above, we hard filter against the 0-All.vcf.gz, but there are sev
 The hard filter is done based on genomic coordinates, so be sure the assemblies of the two VCF files are the same. 
 
 
-./extract_nonsyn_stop_splice_variants.sh ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.novel.vcf.gz | bgzip > novel.candidates.vcf.gz
+*./extract_nonsyn_stop_splice_variants.sh* ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.novel.vcf.gz | bgzip > novel.candidates.vcf.gz
 
 This egreps out prematureStop|removedStop|spliceOverlap|nonsynonymous annotations.
 
-The program extract_fs_splice_indels.sh does a similar thing where it egreps out frameshift and splice site indels.
+The program *extract_fs_splice_indels.sh* does a similar thing where it egreps out frameshift and splice site indels.
 
 
 
