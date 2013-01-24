@@ -1,7 +1,7 @@
 if test -z "$1"
 then
 echo "provide a bgzip-ed vcf file as first argument."
-echo "extract_nonsyn_stop_splice_variants.sh file.vcf.gz"
+echo "extract_fs_splice_indels.sh file.vcf.gz"
 exit
 fi
 
