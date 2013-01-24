@@ -35,6 +35,9 @@ def main():
     for row in pysamTbi.fetch():
         fields=row.split("\t")
         chr=fields[0]
+        if 'chr' in chr:
+            chr.replace('chr','')
+        
         start=int(fields[1])-1
         end=start+1
     #print chr,start,end
