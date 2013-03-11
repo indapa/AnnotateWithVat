@@ -22,6 +22,7 @@ To avoid this error, define the shell variable LD_LIBRARY_PATH to include the di
 I added the folowing in my .bashrc file:
 
 LD_LIBRARY_PATH=/usr/local/lib
+
 export LD_LIBRARY_PATH
 
 Once VAT is installed it places a file, .vatrc, in your home directory. It has lines telling your
