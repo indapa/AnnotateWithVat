@@ -60,7 +60,8 @@ Instead of SNPs this  annotates INDELs.
 
 *./runVcfSummary.sh* ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz GencodeAnnotations/gencode7.interval
 
-This program runs vcfSummary and gets total numbers of variants in each gene and each sample. 
+This program runs vcfSummary and gets total numbers of variants in each gene and each sample. Please note that for this and the remaining
+scripts you need to index the VCF file using tabix prior to running them.
 See http://vat.gersteinlab.org/programs.php
 
 *./tabix_catalog_filter.py*  --catalogVcf ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.vcf.gz | bgzip > ALL.2of4intersection.20100804.sites.chr2:1-50000000.snp.annotated.novel.vcf.gz
