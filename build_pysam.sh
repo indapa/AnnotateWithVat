@@ -5,6 +5,5 @@ tar -xvf pysam-0.7.tar
 
 cd pysam-0.7
 sudo python setup.py build
-sudo python setup.py build
-sudo python setup.py install --user
+python setup.py install --user
 cd ..
